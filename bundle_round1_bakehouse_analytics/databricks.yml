@@ -7,10 +7,6 @@ bundle:
 include:
   - resources/*.yml
 
-artifacts:
-  python_artifact:
-    type: whl
-    build: uv build --wheel
 
 # Variable declarations. These variables are assigned in the dev/prod targets below.
 variables:
@@ -45,14 +41,3 @@ targets:
       - user_name: michaelli@washingtonithub.onmicrosoft.com
         level: CAN_MANAGE
 
-python_wheel_task:
-    package_name: bundle_round1_bakehouse_analytics
-    entry_point: main
-    parameters:
-      - "--catalog"
-      - "${var.catalog}"
-      - "--schema"
-      - "${var.schema}"
-libraries:
-  - whl: ../dist/*.whl
-environment_key: default
