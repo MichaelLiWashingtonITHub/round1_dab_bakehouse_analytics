@@ -44,3 +44,15 @@ targets:
     permissions:
       - user_name: michaelli@washingtonithub.onmicrosoft.com
         level: CAN_MANAGE
+
+python_wheel_task:
+    package_name: bundle_round1_bakehouse_analytics
+    entry_point: main
+    parameters:
+      - "--catalog"
+      - "${var.catalog}"
+      - "--schema"
+      - "${var.schema}"
+libraries:
+  - whl: ../dist/*.whl
+environment_key: default
